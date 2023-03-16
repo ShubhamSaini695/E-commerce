@@ -105,4 +105,5 @@ const Wrapper = styled.section`
     color: #5138ee;
   }
 `;
+
 export default Services;

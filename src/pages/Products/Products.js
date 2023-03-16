@@ -5,14 +5,13 @@ import Pagination from './Components/Pagination';
 import Posts from './Components/Posts';
 
 const Products = () => {
+
   const dispatch = useDispatch();
   const data = useSelector(state => state.productsReducer)
-  useEffect(() => {
 
+  useEffect(() => {
     dispatch({ type: "REQUEST_PRODUCTS" })
   }, [])
-
-  console.log("Total products are ", data.length);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(12);
@@ -28,14 +27,9 @@ const Products = () => {
       <div className="container">
         <div className="intro-data">Check Now!</div>
         <div className="common-heading">Our Products</div>
+
         <Posts posts={currentPosts} />
-        <Pagination
-          postsPerPage={postsPerPage}
-          totalPosts={data.length}
-          paginate={paginate}
-        />
-
-
+        <Pagination postsPerPage={postsPerPage} totalPosts={data.length} paginate={paginate} />
       </div>
     </Wrapper >
   )
@@ -161,4 +155,5 @@ nav{
 
 
 `;
+
 export default Products;

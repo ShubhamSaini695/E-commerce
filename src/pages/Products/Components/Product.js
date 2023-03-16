@@ -3,7 +3,9 @@ import { NavLink } from "react-router-dom";
 import FormatPrice from "../../../converter/FormatPrice";
 
 const Product = (curElem) => {
+
     const { name, image, price, category } = curElem;
+
     return (
         <NavLink to={`/singleproduct/${name}`} state={{ curElem }}>
             <div className="card">
@@ -22,4 +24,5 @@ const Product = (curElem) => {
         </NavLink >
     );
 };
+
 export default Product;

@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { Button } from "../styles/Button";
+import { Button } from "../../../styles/Button";
 
 const HeroSection = ({ myData }) => {
   const { name } = myData;
@@ -21,7 +21,7 @@ const HeroSection = ({ myData }) => {
               <Button>show now</Button>
             </NavLink>
           </div>
-          {/* our homepage image  */}
+
           <div className="hero-section-image">
             <figure>
               <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Portones_Shopping_Mall.png" alt="hero-section-photo" className="img-style" />

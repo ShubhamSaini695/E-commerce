@@ -1,6 +1,3 @@
-import axios from "axios"
-import { put } from "redux-saga/effects"
-
 export const ADD_TO_CART = "@cart/ADD_TO_CART";
 export const SET_PRODUCTS = "@products/SET_PRODUCTS"
 
@@ -24,6 +21,8 @@ export const clearCart = () => {
     };
 };
 
-
-
-
+export const cartItemsPriceTotal = () => {
+    return {
+        type: "CART_ITEM_PRICE_TOTAL"
+    };
+};

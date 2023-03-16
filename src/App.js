@@ -7,11 +7,12 @@ import Contact from "./pages/Contact/Contact";
 import Cart from "./pages/Cart/Cart";
 import SingleProduct from "./pages/Product/SingleProduct";
 import { ThemeProvider } from "styled-components";
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
 import { GlobalStyle } from "./styles/GlobalStyle";
-//import Footer from "./components/Footer";
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
+
   const theme = {
     colors: {
       heading: "rgb(24 24 29)",

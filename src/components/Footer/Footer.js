@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import { Button } from "../styles/Button";
+import { Button } from "../../styles/Button";
 import { FaDiscord, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
@@ -22,33 +22,32 @@ const Footer = () => {
             </div>
           </div>
         </section>
-        {/* footer section */}
 
         <footer>
-            <div className="container grid grid-four-column">
-                <div className="footer-about">
-                    <h3>Shubham Rara</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p>
-                </div>
-
-                <div className="footer-social">
-                    <h3>Follow Us</h3>
-                    <div className="footer-social--icons">
-                        <div>
-                            <FaDiscord className="icons" />
-                        </div>
-
-                        <div>
-                            <FaInstagram className="icons" />
-                        </div>
-                    </div>
-                </div>
-
-                <div className="footer-contact">
-                    <h3>Call Us</h3>
-                    <h3>+91-7027331695</h3>
-                </div>
+          <div className="container grid grid-four-column">
+            <div className="footer-about">
+              <h3>Shubham Rara</h3>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p>
             </div>
+
+            <div className="footer-social">
+              <h3>Follow Us</h3>
+              <div className="footer-social--icons">
+                <div>
+                  <FaDiscord className="icons" />
+                </div>
+
+                <div>
+                  <FaInstagram className="icons" />
+                </div>
+              </div>
+            </div>
+
+            <div className="footer-contact">
+              <h3>Call Us</h3>
+              <h3>+91-7027331695</h3>
+            </div>
+          </div>
 
           <div className="footer-bottom--section">
             <hr />
@@ -69,8 +68,6 @@ const Footer = () => {
 };
 
 const Wrapper = styled.section`
-
-
 .contact-short {
     max-width: 60vw;
     margin: auto;

@@ -3,10 +3,74 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { FiShoppingCart } from "react-icons/fi";
 import { CgMenu, CgClose } from "react-icons/cg";
+import { useSelector } from "react-redux";
 
 const Nav = () => {
 
-  const Nav = styled.nav`
+  const data = useSelector(state => state.cartReducer);
+  const totalItems = data.total_item;
+
+  return (
+    <Navi>
+      <div >
+        <ul className="navbar-lists">
+          <li>
+            <NavLink
+              to="/"
+              className="navbar-link "
+            >
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/about"
+              className="navbar-link "
+            >
+              About
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/products"
+              className="navbar-link "
+            >
+              Products
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/contact"
+              className="navbar-link "
+            >
+              Contact
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/cart" className="navbar-link cart-trolley--link">
+              <FiShoppingCart className="cart-trolley" />
+              <span className="cart-total--item"> {totalItems} </span>
+            </NavLink>
+          </li>
+        </ul>
+
+        <div className="mobile-navbar-btn">
+          <CgMenu
+            name="menu-outline"
+            className="mobile-nav-icon"
+
+          />
+          <CgClose
+            name="close-outline"
+            className="mobile-nav-icon close-outline"
+          />
+        </div>
+      </div>
+    </Navi>
+  );
+};
+
+const Navi = styled.nav`
     .navbar-lists {
       display: flex;
       gap: 4.8rem;
@@ -159,66 +223,5 @@ const Nav = () => {
       }
     }
   `;
-
-  return (
-    <Nav>
-      <div >
-        <ul className="navbar-lists">
-          <li>
-            <NavLink
-              to="/"
-              className="navbar-link "
-            >
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/about"
-              className="navbar-link "
-            >
-              About
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/products"
-              className="navbar-link "
-            >
-              Products
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/contact"
-              className="navbar-link "
-            >
-              Contact
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/cart" className="navbar-link cart-trolley--link">
-              <FiShoppingCart className="cart-trolley" />
-              <span className="cart-total--item">  </span>
-            </NavLink>
-          </li>
-        </ul>
-
-        {/* two button for open and close of menu */}
-        <div className="mobile-navbar-btn">
-          <CgMenu
-            name="menu-outline"
-            className="mobile-nav-icon"
-
-          />
-          <CgClose
-            name="close-outline"
-            className="mobile-nav-icon close-outline"
-          />
-        </div>
-      </div>
-    </Nav>
-  );
-};
 
 export default Nav;

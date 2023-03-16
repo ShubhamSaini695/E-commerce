@@ -1,10 +1,7 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styled from "styled-components";
 import Product from '../../Products/Components/Product';
-
-
 
 const FeatureProducts = () => {
 
@@ -118,4 +115,5 @@ const Wrapper = styled.section`
     }
   }
 `;
+
 export default FeatureProducts

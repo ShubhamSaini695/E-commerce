@@ -7,7 +7,6 @@ import { TbTruckDelivery, TbReplace } from "react-icons/tb";
 import MyImage from './Components/MyImage';
 import AddToCart from './Components/AddToCart';
 
-
 const SingleProduct = (props) => {
 
   const { state } = useLocation();

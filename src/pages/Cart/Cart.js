@@ -5,16 +5,18 @@ import { clearCart } from '../../redux/action'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from "react";
 import CartItem from './Components/CartItem'
+import FormatPrice from "../../converter/FormatPrice";
 
 const Cart = () => {
 
   const data = useSelector((state) => state.cartReducer)
-  useEffect(() => {
-
-  })
   const dispatch = useDispatch();
   const items = data.cart;
-  console.log("items in cart are", items)
+  const total_price = data.total_price;
+  const shipping_fee = total_price / 50;
+  useEffect(() => {
+    dispatch({ type: "CART_ITEM_PRICE_TOTAL" })
+  }, [items])
 
   return (
     <Wrapper>
@@ -43,13 +45,39 @@ const Cart = () => {
           clear cart
         </Button>
       </div>
+
+
+      <div className="order-total--amount">
+        <div className="order-total--subdata">
+          <div>
+            <p>subtotal:</p>
+            <p>
+              <FormatPrice price={total_price} />
+            </p>
+          </div>
+          <div>
+            <p>shipping fee:</p>
+            <p>
+              <FormatPrice price={shipping_fee} />
+            </p>
+          </div>
+          <hr />
+          <div>
+            <p>order total:</p>
+            <p>
+              <FormatPrice price={shipping_fee + total_price} />
+            </p>
+          </div>
+        </div>
+      </div>
+
+
     </Wrapper >
   );
 };
 
 const Wrapper = styled.section`
-  padding: 9rem 0;
-  font-size: 1.4rem;
+ padding: 9rem 4.8rem;
   .grid-four-column {
     grid-template-columns: repeat(4, 1fr);
   }
@@ -144,7 +172,34 @@ const Wrapper = styled.section`
     color: #e74c3c;
     cursor: pointer;
   }
-  //
+  .order-total--amount {
+    width: 100%;
+    margin: 4.8rem 0;
+    text-transform: capitalize;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    .order-total--subdata {
+      border: 0.1rem solid #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+      padding: 3.2rem;
+    }
+    div {
+      display: flex;
+      gap: 3.2rem;
+      justify-content: space-between;
+    }
+    div:last-child {
+      background-color: #fafafa;
+    }
+    div p:last-child {
+      font-weight: bold;
+      color: ${({ theme }) => theme.colors.heading};
+    }
+  }
   @media (max-width: ${({ theme }) => theme.media.mobile}) {
     .grid-five-column {
       grid-template-columns: 1.5fr 1fr 0.5fr;
@@ -158,8 +213,20 @@ const Wrapper = styled.section`
       justify-content: space-between;
       gap: 2.2rem;
     }
-
+    .order-total--amount {
+      width: 100%;
+      text-transform: capitalize;
+      justify-content: flex-start;
+      align-items: flex-start;
+      .order-total--subdata {
+        width: 100%;
+        border: 0.1rem solid #f0f0f0;
+        display: flex;
+        flex-direction: column;
+        gap: 1.8rem;
+        padding: 3.2rem;
+      }
+    }
   }
 `;
-
 export default Cart;

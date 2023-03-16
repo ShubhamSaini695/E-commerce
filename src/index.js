@@ -4,17 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux'
-//import { CartProvider } from "./context/cart_context";
 import store from './redux/store';
-
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <Provider store={store}>
-        {/*<CartProvider>*/}
 
+    <Provider store={store}>
         <App />
-        {/*</CartProvider>*/}
     </Provider>
 
 );

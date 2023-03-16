@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import FormatPrice from "../../../converter/FormatPrice";
 import { FaTrash } from "react-icons/fa";
 import { useDispatch } from "react-redux";
@@ -7,10 +7,6 @@ import { removeItem } from '../../../redux/action'
 const CartItem = ({ id, name, image, color, price, amount }) => {
 
     const dispatch = useDispatch();
-
-    useEffect(() => {
-        console.log("cart item is rendered")
-    })
 
     return (
         <div className="cart_heading grid grid-five-column">
